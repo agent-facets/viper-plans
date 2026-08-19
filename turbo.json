@@ -1,0 +1,17 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "globalDependencies": ["mise.toml"],
+  "tasks": {
+    "build": {
+      "outputs": ["build/**"]
+    },
+    "check:format": {},
+    "check:types": {},
+    "check:version": {},
+    "test": {
+      "dependsOn": ["build"]
+    },
+    "check:facet": {}
+  },
+  "ui": "tui"
+}

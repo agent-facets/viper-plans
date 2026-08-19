@@ -2,6 +2,14 @@ Load the `viper-planning` skill for guidance on plan structure.
 
 If the user provided a goal as arguments, use it. Otherwise, ask what they'd like to do. Only use the `question` tool if you need to ask multiple choice questions.
 
+## Plan tools
+
+The `viper-plans` MCP server provides `viper-write-plan`, `viper-read-plan`, `viper-edit-plan`,
+`viper-list-plans`, and `viper-delete-plan`. A client may expose them under a prefixed name such as
+`viper-plans_viper-read-plan`, so treat any tool whose name ends with one of those canonical names as
+that tool. Prefer them whenever they are available; when they are not, use the file-tool fallbacks
+described below.
+
 ## Goal
 
 $ARGUMENTS
