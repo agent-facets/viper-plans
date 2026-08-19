@@ -2,6 +2,14 @@ Load the `viper-execution-rules` skill for guidance on the VIPER execution proto
 
 Plan name (if provided): $ARGUMENTS
 
+## Plan tools
+
+The `viper-plans` MCP server provides `viper-write-plan`, `viper-read-plan`, `viper-edit-plan`,
+`viper-list-plans`, and `viper-delete-plan`. A client may expose them under a prefixed name such as
+`viper-plans_viper-read-plan`, so treat any tool whose name ends with one of those canonical names as
+that tool. Prefer them whenever they are available; when they are not, use the file-tool fallbacks
+described below.
+
 ## Plan Detection
 
 Identify the plan to execute using these rules, in order:

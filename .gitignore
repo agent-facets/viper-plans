@@ -2,4 +2,8 @@
 .opencode/
 .claude/
 
+node_modules/
+build/
 dist/
+.turbo/
+*.tgz
