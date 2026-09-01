@@ -3,7 +3,14 @@
   "mcp": {
     "viper-plans": {
       "type": "local",
-      "command": ["node", "./build/index.js"]
+      "command": [
+        "mise",
+        "exec",
+        "--",
+        "bun",
+        "run",
+        "src/index.ts"
+      ]
     }
   }
 }
