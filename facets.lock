@@ -1,0 +1,29 @@
+{
+  "lockfileVersion": 0.3,
+  "facets": {
+    "facet-meta": {
+      "source": {
+        "kind": "registry",
+        "registry": "https://api.agentfacets.io"
+      },
+      "version": "1.0.0",
+      "integrity": "sha256:feffcd79aba75e6cefc65d7ed9d575ac0a89d84342668ca7684039ecb3f53084",
+      "assets": [
+        {
+          "scope": "project",
+          "type": "skill",
+          "name": "using-facets",
+          "materialization": {
+            "kind": "authored"
+          },
+          "files": [
+            {
+              "path": "skills/using-facets/SKILL.md",
+              "integrity": "sha256:5354584990bbbacdff621c23062a8540d1849884b94ce739f86b429057042d24"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
