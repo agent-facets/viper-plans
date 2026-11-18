@@ -92,7 +92,7 @@ never calls the `question` MCP tool. Execute it as follows:
    ```
 
    Do not name the phase, summarize the next step, or tell the user to run
-   `/viper-run`, `/viper-continue`, or any other command — the run resumes on
+   `/viper-run` or any other command — the run resumes on
    any message.
 3. **Do NOT call the `question` MCP tool.** Some harnesses cannot switch models
    while a tool call is pending, which is the whole reason this step type
