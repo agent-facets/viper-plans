@@ -1,6 +1,6 @@
 {
   "name": "viper-plans",
-  "version": "1.3.1",
+  "version": "2.0.0",
   "description": "VIPER planning and execution",
   "skills": {
     "viper-planning": {
@@ -16,16 +16,13 @@
     },
     "viper-run": {
       "description": "Execute a VIPER plan from .opencode/plans/"
-    },
-    "viper-continue": {
-      "description": "Continue execution of the most recently persisted VIPER plan"
     }
   },
   "servers": {
     "viper-plans": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@agent-facets/viper-plans-mcp@1.3.1"]
+      "args": ["-y", "@agent-facets/viper-plans-mcp@2.0.0"]
     }
   },
   "files": ["README.md", "LICENSE"]

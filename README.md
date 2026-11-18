@@ -46,12 +46,11 @@ Then, in your agent:
 
 The planning command explores the repository, asks you clarifying questions, and shows you the
 finished plan. You approve it — with or without model-switch pauses — and it is written to disk.
+The agent then asks whether to execute it now.
 
-```text
-/viper-continue
-```
-
-Execution begins immediately: one TODO per step, in order, with the gates the plan declares.
+Choose **Run now** and execution begins immediately: one TODO per step, in order, with the gates the
+plan declares. Choose **Not now** and the plan stays on disk; run it later with
+`/viper-run <name>`.
 
 ## The step types
 
@@ -127,11 +126,8 @@ you approve.
 The agent reads your auth code and asks what it cannot infer — the limit, the window, whether
 lockout is per-account or per-IP. It then shows you a plan and asks how to save it: keeping the
 `Pause` steps, dropping them, or changing something first. On approval it writes
-`.opencode/plans/login-rate-limit/plan.md` and stops. Planning never implements.
-
-```text
-/viper-continue
-```
+`.opencode/plans/login-rate-limit/plan.md` and asks whether to execute it now. You choose
+**Run now**.
 
 The run starts. `Explore` reads the login handler and the existing middleware. `Propose` then shows
 you the actual approach it found — which middleware to extend, where the counter lives, what happens
@@ -155,14 +151,20 @@ and tells you, rather than pressing on. When the plan finishes, the agent offers
 
 ## The commands
 
-| Command                | What it does                                                                     |
-|------------------------|----------------------------------------------------------------------------------|
-| `/viper-plan <goal>`   | Explores, asks, composes, shows you the plan, and saves it once you approve.      |
-| `/viper-continue`      | Runs the plan you just created, with no re-confirmation. Takes an optional name.  |
-| `/viper-run [name]`    | Lists saved plans, lets you pick and review one, then executes it.                |
+| Command                | What it does                                                                              |
+|------------------------|-------------------------------------------------------------------------------------------|
+| `/viper-plan <goal>`   | Explores, asks, composes, and saves the plan once you approve, then offers to run it now. |
+| `/viper-run [name]`    | Lists saved plans, lets you pick and review one, then executes it.                        |
 
-Use `/viper-continue` right after planning. Use `/viper-run` for a plan from an earlier session — or
-after a compaction, when the agent no longer remembers which plan is current.
+Answer **Run now** right after planning to execute the plan without another confirmation. Use
+`/viper-run <name>` for a plan you saved with **Not now**, a plan from an earlier session, or after a
+compaction.
+
+### Upgrading from 1.x
+
+2.0.0 removes `/viper-continue`. `/viper-plan` now offers to execute the plan as soon as it is saved,
+so there is no separate command to run the plan you just created. To run a saved plan later, use
+`/viper-run <name>`.
 
 ## Why the MCP server
 
@@ -224,7 +226,7 @@ To configure the server yourself instead, point your client at the published pac
   "mcp": {
     "viper-plans": {
       "type": "local",
-      "command": ["npx", "-y", "@agent-facets/viper-plans-mcp@1.3.1"]
+      "command": ["npx", "-y", "@agent-facets/viper-plans-mcp@2.0.0"]
     }
   }
 }
